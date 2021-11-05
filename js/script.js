@@ -5,6 +5,8 @@ let birthday = new Date();
 let targetUnder = new Date(birthday);
 let targetOver = new Date(birthday);
 let coeff = 0;
+let tot = 0;
+let price = 0;
 // +++ /VARIABILI +++
 
 
@@ -40,6 +42,11 @@ if (targetUnder > today) {
     document.getElementById("magg-eta").innerHTML = "In base alla tua età non hai diritto a nessuno sconto";
 }
 
+
+//Calcolo del prezzo
+tot = km * 0.21;
+price = tot - (tot * coeff);
+document.getElementById("prezzo").innerHTML = "Il prezzo del tuo biglietto è " + price.toFixed(2) + "€";
 
 //FOOTER
 document.getElementById("today-day").innerHTML = today.getDate();
