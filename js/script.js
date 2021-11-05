@@ -31,11 +31,11 @@ console.log("TargetUnder = " + targetUnder);
 targetOver.setFullYear(birthday.getFullYear() + 65);
 console.log("TargetOver = " + targetOver);
 if (targetUnder > today) {
-    document.getElementById("magg-eta").innerHTML = "Non hai ancora 18 anni, per questo hai diritto al 20% di sconto";
+    document.getElementById("magg-eta").innerHTML = "Non hai ancora 18 anni, per questo hai diritto al 20% di sconto!";
     console.log("Under18");
     coeff = 0.20;
 } else if (targetOver <= today) {
-    document.getElementById("magg-eta").innerHTML = "Hai più di 65 anni, per questo hai diritto al 40% di sconto";
+    document.getElementById("magg-eta").innerHTML = "Hai più di 65 anni, per questo hai diritto al 40% di sconto!";
     console.log("Under65");
     coeff = 0.40;
 } else {
@@ -45,8 +45,13 @@ if (targetUnder > today) {
 
 //Calcolo del prezzo
 tot = km * 0.21;
+if (coeff != 0) {
+    document.getElementById("tot").innerHTML = "Il prezzo del biglietto al netto dello sconto è: " + tot.toFixed(2) + "€";
+    document.getElementById("sconto").innerHTML = "L'importo dello sconto è: " + (tot * coeff).toFixed(2) + "€";
+}
 price = tot - (tot * coeff);
-document.getElementById("prezzo").innerHTML = "Il prezzo del tuo biglietto è " + price.toFixed(2) + "€";
+document.getElementById("prezzo").innerHTML = "Il prezzo del tuo biglietto è: " + price.toFixed(2) + "€";
+
 
 //FOOTER
 document.getElementById("today-day").innerHTML = today.getDate();
